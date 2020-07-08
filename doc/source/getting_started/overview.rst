@@ -15,6 +15,12 @@ Lux Overview
 Lux is designed to be tightly integrated with `Pandas <https://pandas.pydata.org/>`_, so that Lux can be used as-is, without modifying your existing Pandas code.
 Lux preserves the Pandas dataframe semantics -- which means that you can apply any command from Pandas's API to the dataframes in Lux and expect the same behavior.
 
+Some intro text here...
+
+.. helloworld::
+
+Some more text here...
+
 .. code-block:: python
 
     import pandas as pd
