@@ -15,23 +15,28 @@ Lux Overview
 Lux is designed to be tightly integrated with `Pandas <https://pandas.pydata.org/>`_, so that Lux can be used as-is, without modifying your existing Pandas code.
 Lux preserves the Pandas dataframe semantics -- which means that you can apply any command from Pandas's API to the dataframes in Lux and expect the same behavior.
 
-.. code-block:: python
+.. ipywidgets-display::
 
-    import pandas as pd
-    import lux
+    pip install git+https://github.com/jrdzha/lux-widget    
+    jupyter nbextension install --py luxWidget --user    
+    jupyter nbextension enable --py luxWidget --user
+    pip install git+https://github.com/lux-org/lux    
+    pip install ipywidgets
+    jupyter nbextension enable --py widgetsnbextension --sys-prefix
 
 We can load the dataset via any of the standard Pandas commands. For example, 
 
-.. code-block:: python
-
-    df = pd.read_csv("lux/data/college.csv")
+.. ipywidgets-display::
+    
+    import pandas as pd
+    import lux
+    
+    df = pd.read_csv("../lux/data/college.csv")
+    type(df)
+    df
 
 Lux is built on the philosophy that generating useful visualizations should be as simple as printing out a dataframe. 
 When you print out the dataframe in the notebook, you see the default Pandas table with an additional button that allow you to explore the data visually through Lux.
-
-.. code-block:: python
-
-    df
 
 .. TODO: insert image
 
@@ -52,13 +57,13 @@ Beyond these overview visualizations, you can further specify the data attribute
 This specification is known as the _context_.  
 For example, let's say that you are interested in learning more about the median earning of students after they attend the college (i.e. the attribute `MedianEarning`).
 
-.. code-block:: python
+.. ipywidgets-display::
 
     df.setContext(["MedianEarnings"])
 
 When you print out the dataframe again, you should see three tabs of visualizations recommended to you. 
 
-.. code-block:: python
+.. ipywidgets-display::
 
     df
 
@@ -70,7 +75,7 @@ On the right, you will again see the recommendations based on this Current View.
 
 You can specify a variety of things that you might be interested in, for example, let's say that you are interested in the the median earnings of students in publicly-funded colleges.
 
-.. code-block:: python
+.. ipywidgets-display::
 
     df.setContext(["MedianEarnings", "FundingModel=Public"])
 
@@ -91,7 +96,7 @@ By default, if no context is specified, we display three different types of acti
 
 In the earlier example, when `MedianEarning` is added to the context, the current context is represented as C = {MedianEarnings}.
 
-.. code-block:: python
+.. ipywidgets-display::
 
     df.setContext(["MedianEarnings"])
 

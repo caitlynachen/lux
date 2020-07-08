@@ -1,6 +1,8 @@
 Welcome to Lux's documentation!
 ===============================
 
+.. automodule:: lux
+
 .. automodule:: lux.compiler
    :members:
    :imported-members:

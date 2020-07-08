@@ -16,6 +16,13 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('..'))
+os.system("pip install git+https://github.com/jrdzha/lux-widget")
+
+os.system("jupyter nbextension install --py luxWidget --user")
+os.system("jupyter nbextension enable --py luxWidget --user")
+os.system("pip install ipywidgets")
+os.system("jupyter nbextension enable --py widgetsnbextension --sys-prefix")
+
 
 
 # -- Project information -----------------------------------------------------
@@ -42,7 +49,9 @@ extensions = [
 	'sphinx.ext.intersphinx',
 	'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
-	'sphinx.ext.mathjax'
+	'sphinx.ext.mathjax',
+	'jupyter_sphinx.embed_widgets',
+	# 'jupyter_sphinx.embed_widgets',
 ]
 
 autodoc_default_flags = ['members', "inherited-members"]
