@@ -39,6 +39,12 @@ Welcome to Lux's documentation!
    source/advanced/executor
    source/advanced/API
 
+.. toctree::
+    :maxdepth: 1
+    :glob:
+
+    helloworld
+
 Indices and tables
 ==================
 

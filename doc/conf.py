@@ -42,9 +42,17 @@ extensions = [
 	'sphinx.ext.intersphinx',
 	'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
-	'sphinx.ext.mathjax'
+	'sphinx.ext.mathjax',
+	'nbsphinx',
 ]
-
+# nbsphinx_widgets_path = "https://raw.githubusercontent.com/lux-org/lux-widget/master/luxWidget/nbextension/static"
+# nbsphinx_requirejs_path = "https://raw.githubusercontent.com/lux-org/lux-widget/master/luxWidget/nbextension/static"
+# nbsphinx_widgets_path = "file://lux-widget/luxWidget/nbextension/static/index.js"
+fileDir = os.path.dirname(os.path.realpath('__file__'))
+filename = os.path.join(fileDir, '../../lux-widget/luxWidget/nbextension/static/index.js')
+nbsphinx_widgets_path = filename
+# filename = os.path.join(fileDir, '../../lux-widget/luxWidget/nbextension/static/extension.js')
+# nbsphinx_requirejs_path = filename
 autodoc_default_flags = ['members', "inherited-members"]
 autodoc_member_order = "groupwise"
 autosummary_generate = True
@@ -71,5 +79,13 @@ html_theme = "sphinx_rtd_theme"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+suppress_warnings = [
+'nbsphinx.localfile',
+'nbsphinx.gallery',
+'nbsphinx.thumbnail',
+'nbsphinx.notebooktitle',
+'nbsphinx.ipywidgets',
+]
 
 master_doc = 'index'

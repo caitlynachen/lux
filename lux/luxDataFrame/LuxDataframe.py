@@ -450,7 +450,9 @@ class LuxDataFrame(pd.DataFrame):
         """       
         checkImportLuxWidget()
         import luxWidget
+        # import ipywidgets as widgets
         widgetJSON = ldf.toJSON(inputCurrentView=inputCurrentView)
+        # return None
         return luxWidget.LuxWidget(
             currentView=widgetJSON["currentView"],
             recommendations=widgetJSON["recommendation"],
