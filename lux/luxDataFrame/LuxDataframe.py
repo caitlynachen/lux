@@ -440,6 +440,9 @@ class LuxDataFrame(pd.DataFrame):
         button.on_click(on_button_clicked)
         on_button_clicked(None)
 
+    def renderHTML(self):
+        embed_minimal_html('export.html', views=[self.widget], title='Widgets export')
+
     def displayPandas(self):
         return self.toPandas()
     @staticmethod

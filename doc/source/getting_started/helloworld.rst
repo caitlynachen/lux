@@ -1,5 +1,5 @@
 ********
-Overview
+Hello World
 ********
 
 This tutorial provides an overview of how you can use Lux in your data exploration workflow. 
@@ -19,23 +19,17 @@ Some intro text here...
 
 .. helloworld::
 
-Some more text here...
-
-.. code-block:: python
-
     import pandas as pd
     import lux
 
-We can load the dataset via any of the standard Pandas commands. For example, 
+    df = pd.read_csv("../lux/data/college.csv")
 
-.. code-block:: python
+    print("BIG KEYYYY")
 
-    df = pd.read_csv("lux/data/college.csv")
-
-Lux is built on the philosophy that generating useful visualizations should be as simple as printing out a dataframe. 
-When you print out the dataframe in the notebook, you see the default Pandas table with an additional button that allow you to explore the data visually through Lux.
+    df
 
 .. TODO: insert image
+
 
 When you click on this button, you should see three tabs of visualizations recommended to you. 
 

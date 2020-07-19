@@ -33,7 +33,7 @@ release = '0.1.2'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 
-sys.path.append(os.path.abspath("./_ext"))
+sys.path.append(os.path.abspath("./sphinxext"))
 
 extensions = [
 	'sphinx.ext.autodoc',
@@ -46,6 +46,7 @@ extensions = [
     'sphinx.ext.napoleon',
 	'sphinx.ext.mathjax',
 	'lux.sphinxext.helloworld',
+	'jupyter_sphinx.execute',
 ]
 
 autodoc_default_flags = ['members', "inherited-members"]
