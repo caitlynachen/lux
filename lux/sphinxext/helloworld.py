@@ -40,23 +40,35 @@ class HelloWorld(Directive):
 		target_id = "%s.%s" % (env.docname, basename(js_path))
 		target = nodes.target('', '', ids=[js_path])
 		result = [target]
-		print("KEYYYYY")
 		linenos = self.options.get('linenos', False)
 		code = nodes.literal_block(source, source, language="python", linenos=linenos, classes=[])
 		set_source_info(self, code)
 		result += [code]
-		#lux_node = lux_df("")
+		lux_node = lux_df("")
 		#print("HI")
-		print(source)
+		print("KEYYYYY")
 		print(eval_block(source))
+		file = open('export.html', mode = 'r')
+		html = file.read()
+		file.close()
+		print(self.options)
+		result += [lux_node]
+		#result[0].body.append(html)
 		return result
 
 def builder_inited(app):
 	app.add_javascript(app.config.lux_widget_js_url)
 
+def visit_lux_df_html(self, node): # runs on each node returned by 'run'
+	print("HELLOOOO")
+	print(self)
+	print(node) 
+
+def depart_lux_df_html(self, node):
+	return
 
 def setup(app):
-	app.add_node(lux_df)
+	app.add_node(lux_df, html=(visit_lux_df_html, depart_lux_df_html))
 	app.add_directive("helloworld", HelloWorld)
 	app.add_config_value("lux_widget_js_url", LUXWIDGET_JS_URL_DEFAULT, "html")
 	# app.add_stylesheet("altair-plot.css")

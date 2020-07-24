@@ -4,6 +4,9 @@ from lux.view.View import View
 from lux.view.ViewCollection import ViewCollection
 from lux.utils.utils import checkImportLuxWidget
 #import for benchmarking
+
+from ipywidgets.embed import embed_minimal_html
+
 import time
 import typing
 class LuxDataFrame(pd.DataFrame):

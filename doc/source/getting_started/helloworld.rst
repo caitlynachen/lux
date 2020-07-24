@@ -18,15 +18,11 @@ Lux preserves the Pandas dataframe semantics -- which means that you can apply a
 Some intro text here...
 
 .. helloworld::
-
     import pandas as pd
     import lux
-
     df = pd.read_csv("../lux/data/college.csv")
-
-    print("BIG KEYYYY")
-
-    df
+    df._repr_html_()
+    df.renderHTML()
 
 .. TODO: insert image
 
