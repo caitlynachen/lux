@@ -62,28 +62,20 @@ class LineChart(AltairChart):
             agg_title = get_agg_title(y_attr)
             x_attr_spec = alt.X(x_attr.attribute, type=x_attr.data_type, axis=alt.Axis(title=x_attr_abv))
             y_attr_spec = alt.Y(
-<<<<<<< HEAD
-                y_attr.attribute, type=y_attr.data_type, title=agg_title, axis=alt.Axis(title=y_attr_abv)
-=======
                 y_attr.attribute,
                 type=y_attr.data_type,
                 title=agg_title,
                 axis=alt.Axis(title=y_attr_abv),
->>>>>>> 778146813380109b134590395df46d9d7e97aec2
             )
             x_attr_field_code = f"alt.X('{x_attr.attribute}', type = '{x_attr.data_type}', axis=alt.Axis(title='{x_attr_abv}'))"
             y_attr_fieldCode = f"alt.Y('{y_attr.attribute}', type= '{y_attr.data_type}', title='{agg_title}', axis=alt.Axis(title='{y_attr_abv}')"
         else:
             agg_title = get_agg_title(x_attr)
             x_attr_spec = alt.X(
-<<<<<<< HEAD
-                x_attr.attribute, type=x_attr.data_type, title=agg_title, axis=alt.Axis(title=x_attr_abv)
-=======
                 x_attr.attribute,
                 type=x_attr.data_type,
                 title=agg_title,
                 axis=alt.Axis(title=x_attr_abv),
->>>>>>> 778146813380109b134590395df46d9d7e97aec2
             )
             y_attr_spec = alt.Y(y_attr.attribute, type=y_attr.data_type, axis=alt.Axis(title=y_attr_abv))
             x_attr_field_code = f"alt.X('{x_attr.attribute}', type = '{x_attr.data_type}', title='{agg_title}', axis=alt.Axis(title='{x_attr_abv}')"

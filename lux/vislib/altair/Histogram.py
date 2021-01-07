@@ -94,22 +94,14 @@ class Histogram(AltairChart):
         if measure.channel == "x":
             self.code += f"""
 		chart = alt.Chart(visData).mark_bar(size={markbar}).encode(
-<<<<<<< HEAD
-            alt.X('{msr_attr.attribute}', title='{msr_attr.attribute} (binned)',bin=alt.Bin(binned=True), type='{msr_attr.data_type}', axis=alt.Axis(labelOverlap=True, title='{msr_attr_abv} (binned)'), scale=alt.Scale(domain=({x_min}, {x_max}))),
-=======
 		    alt.X('{msr_attr.attribute}', title='{msr_attr.attribute} (binned)',bin=alt.Bin(binned=True), type='{msr_attr.data_type}', axis=alt.Axis(labelOverlap=True, title='{msr_attr_abv} (binned)'), scale=alt.Scale(domain=({x_min}, {x_max}))),
->>>>>>> 778146813380109b134590395df46d9d7e97aec2
 		    alt.Y("Number of Records", type="quantitative")
 		)
 		"""
         elif measure.channel == "y":
             self.code += f"""
 		chart = alt.Chart(visData).mark_bar(size={markbar}).encode(
-<<<<<<< HEAD
-            alt.Y('{msr_attr.attribute}', title='{msr_attr.attribute} (binned)',bin=alt.Bin(binned=True), type='{msr_attr.data_type}', axis=alt.Axis(labelOverlap=True, title='{msr_attr_abv} (binned)'), scale=alt.Scale(domain=({x_min}, {x_max}))),
-=======
 		    alt.Y('{msr_attr.attribute}', title='{msr_attr.attribute} (binned)',bin=alt.Bin(binned=True), type='{msr_attr.data_type}', axis=alt.Axis(labelOverlap=True, title='{msr_attr_abv} (binned)'), scale=alt.Scale(domain=({x_min}, {x_max}))),
->>>>>>> 778146813380109b134590395df46d9d7e97aec2
 		    alt.X("Number of Records", type="quantitative")
 		)
 		"""
