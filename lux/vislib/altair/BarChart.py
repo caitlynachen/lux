@@ -61,7 +61,14 @@ class BarChart(AltairChart):
                 axis=alt.Axis(labelOverlap=True, title=y_attr_abv),
             )
             x_attr_field = alt.X(
+<<<<<<< HEAD
                 x_attr.attribute, type=x_attr.data_type, title=agg_title, axis=alt.Axis(title=agg_title)
+=======
+                x_attr.attribute,
+                type=x_attr.data_type,
+                title=agg_title,
+                axis=alt.Axis(title=agg_title),
+>>>>>>> 778146813380109b134590395df46d9d7e97aec2
             )
             y_attr_field_code = f"alt.Y('{y_attr.attribute}', type= '{y_attr.data_type}', axis=alt.Axis(labelOverlap=True, title='{y_attr_abv}'))"
             x_attr_field_code = f"alt.X('{x_attr.attribute}', type= '{x_attr.data_type}', title='{agg_title}', axis=alt.Axis(title='{agg_title}'))"
@@ -80,7 +87,14 @@ class BarChart(AltairChart):
             )
             x_attr_field_code = f"alt.X('{x_attr.attribute}', type= '{x_attr.data_type}', axis=alt.Axis(labelOverlap=True, title='{x_attr_abv}'))"
             y_attr_field = alt.Y(
+<<<<<<< HEAD
                 y_attr.attribute, type=y_attr.data_type, title=agg_title, axis=alt.Axis(title=agg_title)
+=======
+                y_attr.attribute,
+                type=y_attr.data_type,
+                title=agg_title,
+                axis=alt.Axis(title=agg_title),
+>>>>>>> 778146813380109b134590395df46d9d7e97aec2
             )
             y_attr_field_code = f"alt.Y('{y_attr.attribute}', type= '{y_attr.data_type}', title='{agg_title}', axis=alt.Axis(title='{agg_title}'))"
             if x_attr.sort == "ascending":
@@ -88,7 +102,7 @@ class BarChart(AltairChart):
                 x_attr_field_code = f"alt.X('{x_attr.attribute}', type= '{x_attr.data_type}', axis=alt.Axis(labelOverlap=True, title='{x_attr_abv}'),sort='-y')"
         k = 10
         self._topkcode = ""
-        n_bars = len(self.data[bar_attr].unique())
+        n_bars = len(self.data.iloc[:, 0].unique())
         if n_bars > k:  # Truncating to only top k
             remaining_bars = n_bars - k
             self.data = self.data.nlargest(k, measure_attr)
@@ -112,6 +126,7 @@ class BarChart(AltairChart):
 		chart = chart + text\n"""
 
         chart = alt.Chart(self.data).mark_bar().encode(y=y_attr_field, x=x_attr_field)
+
         # TODO: tooltip messes up the count() bar charts
         # Can not do interactive whenever you have default count measure otherwise output strange error (Javascript Error: Cannot read property 'length' of undefined)
         # chart = chart.interactive() # If you want to enable Zooming and Panning

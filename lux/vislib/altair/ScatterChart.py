@@ -86,7 +86,11 @@ class ScatterChart(AltairChart):
         self.code += f"""
 		chart = alt.Chart({dfname}).mark_circle().encode(
 		    x=alt.X('{x_attr.attribute}',scale=alt.Scale(domain=({x_min}, {x_max})),type='{x_attr.data_type}', axis=alt.Axis(title='{x_attr_abv}')),
+<<<<<<< HEAD
             y=alt.Y('{y_attr.attribute}',scale=alt.Scale(domain=({y_min}, {y_max})),type='{y_attr.data_type}', axis=alt.Axis(title='{y_attr_abv}'))
+=======
+		    y=alt.Y('{y_attr.attribute}',scale=alt.Scale(domain=({y_min}, {y_max})),type='{y_attr.data_type}', axis=alt.Axis(title='{y_attr_abv}'))
+>>>>>>> 778146813380109b134590395df46d9d7e97aec2
 		)
 		chart = chart.configure_mark(tooltip=alt.TooltipContent('encoding')) # Setting tooltip as non-null
 		chart = chart.interactive() # Enable Zooming and Panning
