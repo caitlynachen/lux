@@ -59,15 +59,12 @@ class Histogram(MatplotlibChart):
 
         x_label = ""
         y_label = ""
-        axis_title = f"{msr_attr.attribute} (binned)"
-        if msr_attr.attribute == " ":
-            axis_title = "Series (binned)"
         if measure.channel == "x":
-            x_label = axis_title
+            x_label = f"{msr_attr.attribute} (binned)"
             y_label = "Number of Records"
         elif measure.channel == "y":
             x_label = "Number of Records"
-            y_label = axis_title
+            y_label = f"{msr_attr.attribute} (binned)"
 
         self.ax.set_xlabel(x_label)
         self.ax.set_ylabel(y_label)
