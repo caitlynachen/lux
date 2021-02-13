@@ -497,3 +497,18 @@ def test_matplotlib_heatmap_flag_config():
     assert not df.recommendation["Correlation"][0]._postbin
     lux.config.heatmap = True
     lux.config.plotting_backend = "vegalite"
+
+
+def test_unnamed_column():
+    lux.config.plotting_backend = "matplotlib"
+    df = pd.read_csv("lux/data/car.csv")
+    df.plot_config = None
+    df = df.rename(columns={"Horsepower": " "})
+    axis_title = "Series (binned)"
+    exported_code_str = df.recommendation["Distribution"][0].to_matplotlib_code()
+    assert axis_title in exported_code_str
+
+    lux.config.plotting_backend = "vegalite"
+
+    exported_code_str = df.recommendation["Distribution"][0].to_Altair()
+    assert axis_title in exported_code_str
