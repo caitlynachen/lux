@@ -83,14 +83,16 @@ def test_series_recommendation():
 
 def test_unnamed_column():
     lux.config.plotting_backend = "matplotlib"
-    df = pd.read_csv("lux/data/car.csv")
+    df = pd.read_csv("https://raw.githubusercontent.com/lux-org/lux-datasets/master/data/employee.csv")
     df.plot_config = None
-    df = df.rename(columns={"Horsepower": " "})
+    df = df["YearsAtCompany"] / df["TotalWorkingYears"]
+    df.__repr__()
     axis_title = "Series (binned)"
     exported_code_str = df.recommendation["Distribution"][0].to_matplotlib_code()
     assert axis_title in exported_code_str
 
     lux.config.plotting_backend = "vegalite"
-
+    df = df["YearsAtCompany"] / df["TotalWorkingYears"]
+    df.__repr__()
     exported_code_str = df.recommendation["Distribution"][0].to_Altair()
     assert axis_title in exported_code_str
