@@ -499,6 +499,14 @@ def test_matplotlib_heatmap_flag_config():
     lux.config.plotting_backend = "vegalite"
 
 
+def test_series_recommendation():
+    lux.config.plotting_backend = "matplotlib"
+    df = pd.read_csv("https://raw.githubusercontent.com/lux-org/lux-datasets/master/data/employee.csv")
+    df.plot_config = None
+    df = df["YearsAtCompany"] / df["TotalWorkingYears"]
+    assert len(df.recommendation["Distribution"]) > 0
+
+
 def test_unnamed_column():
     lux.config.plotting_backend = "matplotlib"
     df = pd.read_csv("lux/data/car.csv")
@@ -512,3 +520,4 @@ def test_unnamed_column():
 
     exported_code_str = df.recommendation["Distribution"][0].to_Altair()
     assert axis_title in exported_code_str
+
