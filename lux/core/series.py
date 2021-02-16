@@ -212,9 +212,6 @@ class LuxSeries(pd.Series):
         ldf = LuxDataFrame(self)
 
         if self._recommendation is not None and self._recommendation == {}:
-            from lux.processor.Compiler import Compiler
-
             ldf.maintain_metadata()
-            # self.current_vis = Compiler.compile_intent(self, self._intent)
             ldf.maintain_recs()
         return ldf._recommendation
